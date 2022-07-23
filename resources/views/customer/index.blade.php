@@ -24,7 +24,8 @@
       <td>{{$customer->created_at}}</td>
       <td>{{$customer->updated_at}}</td>
       <td>{{$customer->category_id}}</td>
-      
+      <button type="button" class="btn btn-success">Edit</button>
+      <button type="button" class="btn btn-danger">Delete</button>
     </tr>
     @endforeach
   </tbody>
