@@ -24,7 +24,7 @@
     <input type="text" class="form-control" id="category_id" name="category_id">
   </div>
 
-  <a href="/category" class="btn btn-secondary">Cancel</a>
+  <a href="/customer" class="btn btn-secondary">Cancel</a>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection
