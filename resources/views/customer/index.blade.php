@@ -12,6 +12,8 @@
       <th scope="col">Created at</th>
       <th scope="col">Updated at</th>
       <th scope="col">Category id</th>
+      <th scope="col">Options</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -24,8 +26,15 @@
       <td>{{$customer->created_at}}</td>
       <td>{{$customer->updated_at}}</td>
       <td>{{$customer->category_id}}</td>
-      <button type="button" class="btn btn-success">Edit</button>
-      <button type="button" class="btn btn-danger">Delete</button>
+      <td>
+      <form action="{{route ('customer.destroy', $customer->id) }}" method="POST">
+            <a href="/customer/{{$customer->id}}/edit" type="button" class="btn btn-success">Edit</a>
+
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        </td>
     </tr>
     @endforeach
   </tbody>

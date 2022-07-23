@@ -70,6 +70,8 @@ class CustomerController extends Controller
     public function edit($id)
     {
         //
+        $customer = Customer::find($id);
+        return view('customer.edit')->with('customer', $customer);
     }
 
     /**
@@ -82,6 +84,15 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $customer = Customer::find($id);
+        $customer->name = $request->get('name');
+        $customer->address = $request->get('address');
+        $customer->phone_number = $request->get('phone_number');
+        $customer->category_id = $request->get('category_id');
+
+        $customer->save();
+
+        return redirect('/customer');
     }
 
     /**
@@ -93,5 +104,10 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         //
+        $customer = Customer::find($id);
+
+        $customer->delete();
+
+        return redirect('/customer');
     }
 }
